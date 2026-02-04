@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | White Mountains Spirit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+        :root {
+            --pine-green: #0a5c36;
+            --sky-blue: #87ceeb;
+            --tree-brown: #8b4513;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #444444;
+            --transparent-green: rgba(10, 92, 54, 0.95);
+            --transparent-brown: rgba(139, 69, 19, 0.9);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --deep-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --cream: #fdfaf5;
+            --light-brown: #f5f0e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--pine-green);
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            border-bottom: 1px solid rgba(10, 92, 54, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--pine-green);
+            margin-right: 0.75rem;
+        }
+
+        .logo-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--pine-green);
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--tree-brown);
+            margin-top: 0.1rem;
+        }
+
+        /* Desktop Navigation */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-desktop li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--pine-green);
+        }
+
+        .nav-desktop li.active a {
+            color: var(--pine-green);
+        }
+
+        .nav-desktop li.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--tree-brown);
+            left: 0;
+            bottom: -5px;
+            animation: underlineSlide 0.3s ease;
+        }
+
+        @keyframes underlineSlide {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Mobile Navigation Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--pine-green);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            color: var(--tree-brown);
+        }
+
+        /* Mobile Navigation */
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1001;
+            padding: 2rem;
+            box-shadow: var(--deep-shadow);
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            overflow-y: auto;
+        }
+
+        .nav-mobile.active {
+            right: 0;
+        }
+
+        .mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(10, 92, 54, 0.1);
+        }
+
+        .mobile-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--pine-green);
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--pine-green);
+            cursor: pointer;
+        }
+
+        .nav-mobile ul {
+            list-style: none;
+        }
+
+        .nav-mobile li {
+            margin-bottom: 0.8rem;
+        }
+
+        .nav-mobile a {
+            display: block;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-mobile a:hover {
+            background-color: rgba(10, 92, 54, 0.05);
+            color: var(--pine-green);
+            transform: translateX(5px);
+        }
+
+        .nav-mobile li.active a {
+            background-color: rgba(10, 92, 54, 0.1);
+            color: var(--pine-green);
+            font-weight: 600;
+        }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ==================== CONTACT HERO WITH PARALLAX - FIXED ==================== */
+        .contact-hero {
+            height: 100vh; /* CHANGED FROM 70vh to 100vh */
+            background: 
+                linear-gradient(rgba(10, 92, 54, 0.85), rgba(10, 92, 54, 0.7)),
+                url('images/contact-hero.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Parallax effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px; /* Account for fixed header */
+            position: relative;
+            min-height: 600px; /* Ensure enough height on very short screens */
+            margin-bottom: 4rem;
+        }
+
+        /* Mobile: remove fixed background for better performance */
+        @media (max-width: 768px) {
+            .contact-hero {
+                background-attachment: scroll; /* Remove parallax on mobile for performance */
+                height: 80vh; /* Adjust for mobile */
+                padding-top: 70px;
+                min-height: 500px;
+            }
+        }
+
+        .contact-hero-content {
+            max-width: 900px;
+            padding: 3rem;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* ==================== WELCOME SECTION ==================== */
+        .welcome-section {
+            padding: 5rem 0;
+            background-color: var(--cream);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--tree-brown);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .welcome-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .welcome-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--medium-gray);
+        }
+
+        .contact-direct {
+            background-color: var(--light-brown);
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 600px;
+            border: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .contact-direct h3 {
+            color: var(--pine-green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-direct p {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .email-link {
+            font-size: 1.3rem;
+            color: var(--tree-brown);
+            font-weight: 600;
+            display: block;
+            margin: 1rem 0;
+            word-break: break-word;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: var(--pine-green);
+        }
+
+        /* ==================== FORM SECTION ==================== */
+        .form-section {
+            padding: 5rem 0;
+            background-color: var(--light-brown);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-title h3 {
+            font-size: 1.8rem;
+            color: var(--pine-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-title p {
+            color: var(--medium-gray);
+            font-size: 1.05rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--pine-green);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--light-gray);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pine-green);
+            box-shadow: 0 0 0 2px rgba(10, 92, 54, 0.1);
+            background-color: var(--white);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            align-self: center;
+            background-color: var(--tree-brown);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border-radius: 5px;
+            border: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-button:hover {
+            background-color: var(--pine-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* ==================== COMMUNITY SECTION ==================== */
+        .community-section {
+            padding: 5rem 0;
+            background-color: var(--pine-green);
+            color: var(--white);
+        }
+
+        .community-section .section-title h2 {
+            color: var(--white);
+        }
+
+        .community-section .section-title h2:after {
+            background-color: var(--sky-blue);
+        }
+
+        .community-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .community-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .community-quote {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 3rem auto;
+            max-width: 700px;
+            color: var(--sky-blue);
+            font-family: 'Merriweather', serif;
+            border-left: 3px solid var(--sky-blue);
+            padding-left: 2rem;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .community-quote {
+                text-align: center;
+                border-left: none;
+                border-top: 3px solid var(--sky-blue);
+                padding-left: 0;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--sky-blue);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--sky-blue);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            margin-right: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 992px) {
+            .contact-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-desktop {
+                display: none;
+            }
+            
+            .contact-hero {
+                padding-top: 70px;
+                background-attachment: scroll;
+                height: 80vh; /* Changed from 60vh to 80vh */
+                min-height: 500px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-mobile {
+                width: 85%;
+            }
+            
+            .contact-direct {
+                padding: 2rem;
+            }
+            
+            .form-container {
+                padding: 2rem;
+            }
+            
+            .community-quote {
+                font-size: 1.2rem;
+                padding-left: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.9rem;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .logo-text span {
+                font-size: 0.9rem;
+            }
+            
+            .community-quote {
+                font-size: 1.1rem;
+                padding-left: 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-mountain"></i></div>
+                <div class="logo-text">White Mountains<br><span>Spirit & Heritage</span></div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="transcendentalism.html">Transcendentalism</a></li>
+                    <li><a href="appeal.html">Appeal to Heaven</a></li>
+                    <li class="active"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Mobile Navigation Menu -->
+    <nav class="nav-mobile" id="navMobile">
+        <div class="mobile-header">
+            <div class="mobile-logo">White Mountains Spirit</div>
+            <button class="mobile-close" id="mobileClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="transcendentalism.html">Transcendentalism</a></li>
+            <li><a href="appeal.html">Appeal to Heaven</a></li>
+            <li class="active"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Your Voice in the Mountains</h1>
+            <p>Every trail holds memories, every peak carries stories. Help us weave the living history of the White Mountains by adding your thread to the tapestry.</p>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Share the Story Only You Can Tell</h2>
+            </div>
+            <div class="welcome-content">
+                <p>The White Mountains have always been a place where stories gather like mist in the valleys—stories of the Abenaki who first called these peaks home, of settlers who learned the language of granite and pine, of transcendentalists who found wisdom in the silence between trees. Each voice adds depth to our understanding, each memory becomes another layer in the rich history of this place.</p>
+                
+                <p>This website grows from the collected experiences of those who know these mountains intimately—whether your family has lived here for generations or you discovered this place on a single transformative hike. Your perspective, your photographs, your family letters, your quiet observations from a favorite overlook—these become the living history we preserve together.</p>
+                
+                <p>We invite you to share what these mountains have taught you, how this landscape has shaped your understanding of resilience, beauty, and community. In doing so, you help ensure that future generations will know not just the facts of this place, but its enduring spirit.</p>
+
+                <div class="contact-direct fade-in">
+                    <h3>Share Your Connection</h3>
+                    <p>Whether you have a family story passed down through generations, a research inquiry about White Mountains history, or simply wish to share how these peaks have touched your life, we welcome your voice.</p>
+                    <p>You can reach us directly at:</p>
+                    <a href="mailto:solarforester@proton.me" class="email-link">solarforester@proton.me</a>
+                    <p>We read every message and respond to each one personally, typically within a few days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="form-section" id="contact-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Send a Message</h2>
+            </div>
+            <div class="form-container">
+                <div class="form-title">
+                    <h3>Let's Begin a Conversation</h3>
+                    <p>Whether you have a story to share, a question about our archives, or thoughts about the White Mountains spirit, we're listening.</p>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>What would you like to discuss?</option>
+                            <option value="story">Share a Story or Memory</option>
+                            <option value="research">Research Inquiry</option>
+                            <option value="contribution">Community Contribution</option>
+                            <option value="correction">Content Correction</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your connection to the White Mountains..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Your Message</button>
+                    
+                    <div class="form-note">
+                        <p>Your message will be sent directly to solarforester@proton.me. We typically respond within 3-5 days.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Your Story Matters</h2>
+            </div>
+            <div class="community-content">
+                <p>History breathes through the memories of those who have walked these trails, weathered these storms, and watched seasons change on these slopes. When Thoreau recorded his White Mountains experiences, he was adding his voice to a conversation that began long before him—a conversation that continues today with each story shared.</p>
+                
+                <div class="community-quote">
+                    "We are each a chapter in a story much larger than ourselves. Our memories become the history others will one day seek to understand."
+                </div>
+                
+                <p>Your family photographs, your grandfather's stories of logging camps, your own journal entries from a hike that changed you—these threads weave the larger tapestry of White Mountains history. They help us understand how this landscape has shaped lives, inspired art, forged communities, and taught lessons about resilience that echo through generations.</p>
+                
+                <p>By sharing what you know, you help ensure that the full richness of this place is preserved—not just the official history recorded in documents, but the living memory of those who have called these mountains home, whether for a lifetime or for a single, unforgettable season.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>White Mountains Spirit</h3>
+                    <div class="footer-about">
+                        <p>This site is created by and for the residents of the White Mountains, New Hampshire. It is a celebration of our shared history and community spirit. All content is dedicated to preserving and honoring the White Mountain story.</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="history.html"><i class="fas fa-chevron-right"></i> Historical Archives</a></li>
+                        <li><a href="people.html"><i class="fas fa-chevron-right"></i> Historical Figures</a></li>
+                        <li><a href="transcendentalism.html"><i class="fas fa-chevron-right"></i> Transcendentalist Writings</a></li>
+                        <li><a href="appeal.html"><i class="fas fa-chevron-right"></i> Appeal to Heaven Flag</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Share Your Story</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Research Inquiries</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Community Forum</a></li>
+                        <li><a href="mailto:solarforester@proton.me"><i class="fas fa-chevron-right"></i> Direct Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 White Mountains Spirit. All rights reserved. This is a non-commercial educational resource.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
