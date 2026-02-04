@@ -1,0 +1,209 @@
+/* ==================== DESIGN SYSTEM ==================== */
+:root {
+    /* Brand Colors */
+    --pine-green: #0a5c36;
+    --sky-blue: #87ceeb;
+    --tree-brown: #8b4513;
+    --cream: #fdfaf5;
+    --light-brown: #f5f0e8;
+
+    /* Neutral Colors */
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #444444;
+
+    /* Semantic Colors */
+    --transparent-green: rgba(10, 92, 54, 0.95);
+    --transparent-brown: rgba(139, 69, 19, 0.9);
+
+    /* Shadow System */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --deep-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    /* Typography */
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Spacing Scale */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 5rem;
+
+    /* Border Radius */
+    --radius-sm: 5px;
+    --radius-md: 8px;
+
+    /* Transitions */
+    --transition-smooth: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ==================== GLOBAL RESETS & BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--cream);
+    overflow-x: hidden;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--pine-green);
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--pine-green);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--tree-brown);
+}
+
+/* ==================== LAYOUT UTILITIES ==================== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.3), transparent);
+    margin: 3rem 0;
+}
+
+/* Section Title Style */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background: var(--tree-brown);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: var(--white);
+}
+
+.text-muted {
+    color: var(--medium-gray);
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.gap-1 { gap: 1rem; }
+.gap-2 { gap: 2rem; }
+.gap-3 { gap: 3rem; }
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes underlineSlide {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+/* ==================== RESPONSIVE BREAKPOINTS ==================== */
+/* Mobile: 576px and down */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-title h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* Tablet: 576px to 992px */
+@media (max-width: 992px) {
+    .section {
+        padding: 4rem 0;
+    }
+}

@@ -1,0 +1,500 @@
+/* ==================== HERO SECTION ==================== */
+.hero {
+    height: 100vh;
+    background: 
+        linear-gradient(rgba(10, 92, 54, 0.85), rgba(10, 92, 54, 0.7)),
+        url('images/wmpainting.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding-top: 80px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 3rem;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        padding-top: 70px;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Secondary Hero (History, Contact, etc.) */
+.history-hero,
+.contact-hero,
+.page-hero {
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding-top: 80px;
+    position: relative;
+    min-height: 600px;
+}
+
+.page-hero-content {
+    max-width: 900px;
+    padding: 3rem;
+}
+
+.page-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.page-hero-content p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .history-hero,
+    .contact-hero,
+    .page-hero {
+        background-attachment: scroll;
+        height: 80vh;
+        padding-top: 70px;
+        min-height: 500px;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .page-hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* ==================== ABOUT SECTION ==================== */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-text {
+    flex: 1.2;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--medium-gray);
+    line-height: 1.8;
+}
+
+.about-image {
+    flex: 0.8;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--deep-shadow);
+    transition: transform 0.5s ease;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    background-color: var(--white);
+}
+
+.about-image:hover {
+    transform: translateY(-10px);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        order: -1;
+    }
+}
+
+/* ==================== VALUES SECTION ==================== */
+.values-section {
+    background-color: var(--pine-green);
+    color: var(--white);
+}
+
+.values-section .section-title h2 {
+    color: var(--white);
+}
+
+.values-section .section-title h2:after {
+    background-color: var(--sky-blue);
+}
+
+/* ==================== FLAG/SPECIAL SECTION ==================== */
+.flag-section {
+    background-color: var(--tree-brown);
+    color: var(--white);
+    text-align: center;
+}
+
+.flag-section .section-title h2 {
+    color: var(--white);
+}
+
+.flag-section .section-title h2:after {
+    background-color: var(--white);
+}
+
+.flag-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flag-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+.flag-image {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--deep-shadow);
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--white);
+}
+
+.flag-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==================== QUOTE SECTION ==================== */
+.quote-section {
+    background-color: var(--light-brown);
+    padding: 5rem 0;
+}
+
+.quote-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: var(--pine-green);
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+}
+
+.quote {
+    font-size: 1.7rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--medium-gray);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-family: var(--font-serif);
+}
+
+.quote-author {
+    font-size: 1.1rem;
+    color: var(--tree-brown);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .quote {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .quote {
+        font-size: 1.3rem;
+    }
+}
+
+/* ==================== TIMELINE (HISTORY PAGE) ==================== */
+.timeline-section {
+    padding: 5rem 0;
+    background-color: var(--cream);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--tree-brown);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 60px;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px;
+}
+
+.timeline-content {
+    padding: 2rem;
+    background-color: var(--light-brown);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-year {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--tree-brown);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--pine-green);
+}
+
+.timeline-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+}
+
+.timeline-image {
+    margin-top: 1.5rem;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.timeline-image img:hover {
+    transform: scale(1.03);
+}
+
+.timeline-item:nth-child(odd) .timeline-content:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--light-brown);
+    top: 40px;
+    transform: rotate(45deg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(even) .timeline-content:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -10px;
+    background-color: var(--light-brown);
+    top: 40px;
+    transform: rotate(45deg);
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-marker {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--pine-green);
+    border: 4px solid var(--tree-brown);
+    top: 40px;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-marker {
+    right: -12.5px;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    left: -12.5px;
+}
+
+@media (max-width: 768px) {
+    .timeline:before {
+        left: 20px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd) {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 60px !important;
+        padding-right: 0 !important;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 7.5px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content:after,
+    .timeline-item:nth-child(even) .timeline-content:after {
+        left: -10px !important;
+        right: auto;
+    }
+}
+
+/* ==================== WELCOME SECTION (CONTACT) ==================== */
+.welcome-section {
+    padding: 5rem 0;
+    background-color: var(--cream);
+}
+
+.welcome-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--medium-gray);
+}
+
+.contact-direct {
+    background-color: var(--light-brown);
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 600px;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.contact-direct h3 {
+    color: var(--pine-green);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact-direct p {
+    color: var(--medium-gray);
+    margin-bottom: 1.5rem;
+}
+
+.email-link {
+    font-size: 1.3rem;
+    color: var(--tree-brown);
+    font-weight: 600;
+    display: block;
+    margin: 1rem 0;
+    word-break: break-word;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--pine-green);
+}
+
+/* ==================== FORM SECTION ==================== */
+.form-section {
+    padding: 5rem 0;
+    background-color: var(--light-brown);
+}
